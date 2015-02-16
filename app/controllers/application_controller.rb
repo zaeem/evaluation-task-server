@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   # respond_to :json
 
+  before_filter :allow_ajax_request_from_other_domains
+
+ def allow_ajax_request_from_other_domains
+   headers['Access-Control-Allow-Origin'] = '*'
+   headers['Access-Control-Request-Method'] = '*'
+   headers['Access-Control-Allow-Headers'] = '*'
+ end
+
 end
