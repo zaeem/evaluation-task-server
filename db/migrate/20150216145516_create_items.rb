@@ -1,7 +1,8 @@
-class CreateFilterData < ActiveRecord::Migration
+class CreateItems < ActiveRecord::Migration
   def change
-    create_table :filter_data do |t|
+    create_table :items do |t|
       t.string :name
+      t.string :image
       t.text :description
 
       t.timestamps null: false
