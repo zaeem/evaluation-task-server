@@ -5,7 +5,11 @@ class ItemsController < ApplicationController
   end
 
   def item_names
-    return render json: @items.map(&:name)
+    updated_items = []
+    @items.each do |item|
+      updated_items << {id: item.id, name: item.name}
+    end
+    return render json: updated_items
   end
 
   def filtered_items
